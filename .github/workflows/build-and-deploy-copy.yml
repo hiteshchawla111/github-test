@@ -8,17 +8,17 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Copy
         uses: actions/checkout@v2
-      - name: Setup Node
+      - name: Setup Node Copy
         uses: actions/setup-node@v2
         with:
           node-version: 18
-      - name: Install dependencies
+      - name: Install dependencies Copy
         run: npm install
-      - name: Build
+      - name: Build Copy
         run: npm run build
-      - name: Deploy
+      - name: Deploy Copy
         uses: jamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
