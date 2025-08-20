@@ -34,3 +34,6 @@ jobs:
 
       - name: Health Check
         run: curl http://localhost:3000
+
+      - name: Wait for 5 minutes
+        run: sleep 300
