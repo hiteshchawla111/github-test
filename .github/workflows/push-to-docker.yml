@@ -18,11 +18,11 @@ jobs:
       - name: Log in REMOTE SSH
         uses: appleboy/ssh-action@v1
         with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script: |
-          echo "✅ SSH Login Successful"
-          whoami
-          hostname
-          pwd
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            echo "✅ SSH Login Successful"
+            whoami
+            hostname
+            pwd
