@@ -3,26 +3,23 @@ name: Build and Push to Docker Hub
 on:
   push:
     branches:
-      - main # Runs only when you push to main branch
+      - "feature/*" # trigger only on feature branches
 
 jobs:
-  build_ssh:
+  create-pr:
     runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout repo (like git clone)
       - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      # Step 2: Log in REMOTE SSH
-      - name: Log in REMOTE SSH
-        uses: appleboy/ssh-action@v1
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            echo "✅ SSH Login Successful"
-            whoami
-            hostname
-            pwd
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }} # current feature branch
+          base: main # target branch
+          title: "Auto PR: ${{ github.ref_name }} → main"
+          body: |
+            This PR was automatically created from branch **${{ github.ref_name }}** to **main**.
