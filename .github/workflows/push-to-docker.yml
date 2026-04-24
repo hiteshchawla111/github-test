@@ -91,7 +91,7 @@ jobs:
             echo "Before cd:"
             pwd
 
-            cd /Users/sotsys033/Desktop/CICD_TEST
+            cd ~/projects/CICD_TEST
 
             echo "After cd:"
             pwd
