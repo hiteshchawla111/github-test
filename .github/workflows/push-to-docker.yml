@@ -74,6 +74,7 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
+          debug: true
           script: |
             echo "Connected to server"
 
@@ -95,3 +96,5 @@ jobs:
             docker run -d -p 5858:3000 --name my-container my-app
 
             echo "Deployment complete"
+
+            echo "SSH connection closed"
