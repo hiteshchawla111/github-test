@@ -77,6 +77,8 @@ jobs:
           passphrase: ""
           debug: true
           script: |
+            export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
+
             echo "Connected to server"
 
             cd /Users/sotsys033/Desktop/CICD_TEST
