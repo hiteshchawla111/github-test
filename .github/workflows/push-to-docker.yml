@@ -74,6 +74,7 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
+          passphrase: ""
           debug: true
           script: |
             echo "Connected to server"
