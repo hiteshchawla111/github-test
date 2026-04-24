@@ -80,7 +80,14 @@ jobs:
             export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 
             echo "Connected to server"
+              pwd
+            whoami
 
+            echo "Current dir:"
+            pwd
+
+            echo "Files:"
+            ls -la
             cd /Users/sotsys033/Desktop/CICD_TEST
 
             echo "Pull latest code"
