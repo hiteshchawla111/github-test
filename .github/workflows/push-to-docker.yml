@@ -80,7 +80,7 @@ jobs:
             export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 
             echo "Connected to server"
-              pwd
+            pwd
             whoami
 
             echo "Current dir:"
@@ -89,6 +89,10 @@ jobs:
             echo "Files:"
             ls -la
             cd /Users/sotsys033/Desktop/CICD_TEST
+            pwd
+
+            echo "Files:"
+            ls
 
             echo "Pull latest code"
             git pull origin main
