@@ -77,6 +77,8 @@ jobs:
           passphrase: ""
           debug: true
           script: |
+            set -e
+
             export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 
             echo "Connected to server"
@@ -86,13 +88,16 @@ jobs:
             echo "Current dir:"
             pwd
 
-            echo "Files:"
+            echo "Before cd:"
+            pwd
 
             cd /Users/sotsys033/Desktop/CICD_TEST
+
+            echo "After cd:"
             pwd
 
             echo "Files:"
-            ls
+            ls -l
 
             echo "Pull latest code"
             git pull origin main
