@@ -27,7 +27,31 @@
 #         run: echo ${{needs.TESTING_LOCAL_ACTION.outputs.BUILD_VERSION}}
 #       - name: USE NAME FROM BUILD
 #         run: echo ${{needs.TESTING_LOCAL_ACTION.outputs.BUILD_NAME}}
-name: Debug GitHub Context
+# name: Debug GitHub Context
+
+# on: push
+
+# jobs:
+#   debug:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Print full github object
+#         run: echo '${{ toJson(github) }}'
+
+#       - name: Print important fields
+#         run: |
+#           echo "Branch (ref): ${{ github.ref }}"
+#           echo "Branch name: ${{ github.ref_name }}"
+#           echo "Event: ${{ github.event_name }}"
+#           echo "Actor: ${{ github.actor }}"
+#           echo "Repository: ${{ github.repository }}"
+#           echo "Commit SHA: ${{ github.sha }}"
+
+#       - name: Print event payload
+#         run: echo '${{ toJson(github.event) }}'
+
+name: Full Debug Context
 
 on: push
 
@@ -36,17 +60,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print full github object
+      - name: Print github context
         run: echo '${{ toJson(github) }}'
 
-      - name: Print important fields
+      - name: Print job context
+        run: echo '${{ toJson(job) }}'
+
+      - name: Print steps context
+        run: echo '${{ toJson(steps) }}'
+
+      - name: Print runner context
+        run: echo '${{ toJson(runner) }}'
+
+      - name: Print strategy context
+        run: echo '${{ toJson(strategy) }}'
+
+      - name: Print matrix context
+        run: echo '${{ toJson(matrix) }}'
+
+      - name: Print env variables
+        run: env
+
+      - name: Print specific useful fields
         run: |
-          echo "Branch (ref): ${{ github.ref }}"
-          echo "Branch name: ${{ github.ref_name }}"
+          echo "Branch: ${{ github.ref_name }}"
           echo "Event: ${{ github.event_name }}"
           echo "Actor: ${{ github.actor }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Commit SHA: ${{ github.sha }}"
-
-      - name: Print event payload
-        run: echo '${{ toJson(github.event) }}'
+          echo "Repo: ${{ github.repository }}"
+          echo "SHA: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner Temp: ${{ runner.temp }}"
