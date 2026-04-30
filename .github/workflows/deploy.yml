@@ -1,0 +1,52 @@
+# name: Deploy
+
+# on: push
+
+# jobs:
+#   TESTING_LOCAL_ACTION:
+#     runs-on: ubuntu-latest
+
+#     outputs:
+#       BUILD_VERSION: ${{steps.set_version.outputs.version}}
+#       BUILD_NAME: ${{steps.set_name.outputs.name}}
+
+#     steps:
+#       - name: Set Version
+#         id: set_version
+#         run: echo "version=1.0.0" >> $GITHUB_OUTPUT
+#       - name: Set NAME
+#         id: set_name
+#         run: echo "name=react-app" >> $GITHUB_OUTPUT
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     needs: TESTING_LOCAL_ACTION
+
+#     steps:
+#       - name: USE VERSION FROM BUILD
+#         run: echo ${{needs.TESTING_LOCAL_ACTION.outputs.BUILD_VERSION}}
+#       - name: USE NAME FROM BUILD
+#         run: echo ${{needs.TESTING_LOCAL_ACTION.outputs.BUILD_NAME}}
+name: Debug GitHub Context
+
+on: push
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print full github object
+        run: echo '${{ toJson(github) }}'
+
+      - name: Print important fields
+        run: |
+          echo "Branch (ref): ${{ github.ref }}"
+          echo "Branch name: ${{ github.ref_name }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Print event payload
+        run: echo '${{ toJson(github.event) }}'

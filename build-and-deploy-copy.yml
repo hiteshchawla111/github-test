@@ -1,25 +1,25 @@
-name: CI Workflow
-on:
-  push:
-    branches: [main]
-permissions:
-  contents: write
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Copy
-        uses: actions/checkout@v2
-      - name: Setup Node Copy
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
-      - name: Install dependencies Copy
-        run: npm install
-      - name: Build Copy
-        run: npm run build
-      - name: Deploy Copy
-        uses: jamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist
+# name: CI Workflow
+# on:
+#   push:
+#     branches: [main]
+# permissions:
+#   contents: write
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Copy
+#         uses: actions/checkout@v2
+#       - name: Setup Node Copy
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 18
+#       - name: Install dependencies Copy
+#         run: npm install
+#       - name: Build Copy
+#         run: npm run build
+#       - name: Deploy Copy
+#         uses: jamesIves/github-pages-deploy-action@v4
+#         with:
+#           branch: gh-pages
+#           folder: dist
