@@ -77,6 +77,7 @@ jobs:
 
       - name: BUILD THE APP
         run: npm run build
+
       - name: CHECK THE DIR
         run: ls
       # - name: Print hash
