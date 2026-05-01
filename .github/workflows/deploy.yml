@@ -65,7 +65,7 @@ jobs:
 
       - name: Print job context
         # run: echo '${{ toJson(job) }}'
-        run: exit 0
+        run: exit 1
 
       - name: Print steps context
         run: echo '${{ toJson(steps) }}'
