@@ -68,6 +68,10 @@ jobs:
 
       - name: CHECK CURRENT BRANCH
         run: git branch --show-current
+
+      - name: CHECK NODE VERSION
+        run: node -v
+
       # - name: Print hash
       #   run: echo "${{ hashFiles('package-lock.json') }}"
 
