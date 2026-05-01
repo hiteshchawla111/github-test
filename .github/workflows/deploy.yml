@@ -63,31 +63,39 @@ jobs:
       - name: Print github context
         run: echo '${{ toJson(github) }}'
 
-      - name: Print job context
-        # run: echo '${{ toJson(job) }}'
-        run: exit 1
+      - name: CHECKOUT THE BRANCH
+        uses: actions/checkout@v6
 
-      - name: Print steps context
-        run: echo '${{ toJson(steps) }}'
+      - name: CHECK CURRENT BRANCH
+        run: git branch --show-current
+      # - name: Print hash
+      #   run: echo "${{ hashFiles('package-lock.json') }}"
 
-      - name: Print runner context
-        run: echo '${{ toJson(runner) }}'
+      # - name: Print job context
+      #   # run: echo '${{ toJson(job) }}'
+      #   run: exit 1
 
-      - name: Print strategy context
-        run: echo '${{ toJson(strategy) }}'
+      # - name: Print steps context
+      #   run: echo '${{ toJson(steps) }}'
 
-      - name: Print matrix context
-        run: echo '${{ toJson(matrix) }}'
+      # - name: Print runner context
+      #   run: echo '${{ toJson(runner) }}'
 
-      - name: Print env variables
-        run: env
+      # - name: Print strategy context
+      #   run: echo '${{ toJson(strategy) }}'
 
-      - name: Print specific useful fields
-        run: |
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Event: ${{ github.event_name }}"
-          echo "Actor: ${{ github.actor }}"
-          echo "Repo: ${{ github.repository }}"
-          echo "SHA: ${{ github.sha }}"
-          echo "Runner OS: ${{ runner.os }}"
-          echo "Runner Temp: ${{ runner.temp }}"
+      # - name: Print matrix context
+      #   run: echo '${{ toJson(matrix) }}'
+
+      # - name: Print env variables
+      #   run: env
+
+      # - name: Print specific useful fields
+      #   run: |
+      #     echo "Branch: ${{ github.ref_name }}"
+      #     echo "Event: ${{ github.event_name }}"
+      #     echo "Actor: ${{ github.actor }}"
+      #     echo "Repo: ${{ github.repository }}"
+      #     echo "SHA: ${{ github.sha }}"
+      #     echo "Runner OS: ${{ runner.os }}"
+      #     echo "Runner Temp: ${{ runner.temp }}"
