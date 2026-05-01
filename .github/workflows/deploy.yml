@@ -72,6 +72,13 @@ jobs:
       - name: CHECK NODE VERSION
         run: node -v
 
+      - name: NPM INSTALL
+        run: npm install
+
+      - name: BUILD THE APP
+        run: npm run build
+      - name: CHECK THE DIR
+        run: ls
       # - name: Print hash
       #   run: echo "${{ hashFiles('package-lock.json') }}"
 
