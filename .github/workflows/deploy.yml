@@ -71,6 +71,11 @@ jobs:
 
       - name: CHECK NODE VERSION
         run: node -v
+      - name: CACHE THE NODE MODULES
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18
+          cache: "npm"
 
       - name: NPM INSTALL
         run: npm install
