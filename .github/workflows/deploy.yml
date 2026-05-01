@@ -64,7 +64,8 @@ jobs:
         run: echo '${{ toJson(github) }}'
 
       - name: Print job context
-        run: echo '${{ toJson(job) }}'
+        # run: echo '${{ toJson(job) }}'
+        run: exit 0
 
       - name: Print steps context
         run: echo '${{ toJson(steps) }}'
